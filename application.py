@@ -19,11 +19,6 @@ def index():
 		username = reg_form.username.data
 		password = reg_form.password.data
 
-		# Check for existing username
-		user_object = User.query.filter_by(username=username).first()
-		if user_object:
-			return "Someone else has taken this username"
-
 		# If no such username add the user to the database
 		user = User(username=username, password=password)
 		db.session.add(user)
