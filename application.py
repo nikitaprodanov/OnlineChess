@@ -10,6 +10,8 @@ app.secret_key = 'replace later'
 def index():
 
 	reg_form = RegistrationForm()
+	if reg_form.validate_on_submit():
+		return "Great success"
 	return render_template("index.html", form=reg_form)
 
 if __name__ == "__main__":
