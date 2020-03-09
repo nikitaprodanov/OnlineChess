@@ -3,5 +3,33 @@
 {% block title %}Registration {% endblock %}
 
 {% block content %}
+
+	<!-- Registration page html -->
 	<h1>Get started</h1>
+
+	<form>
+		<!-- Username field -->
+		<div>
+			{{ form.username(class_ = 'form-control', placeholder='Username', autocomplete='off', autofocus=true)}}
+		</div>
+
+		<!-- Password field -->
+		<div>
+			{{ form.password(class_ = 'form-control', placeholder='Username')}}
+		</div>
+
+		<!-- Confirm password field -->
+		<div>
+			{{ form.confirm_pswd(class_ = 'form-control', placeholder='Retype Password')}}
+		</div>
+
+		<!-- Submit button -->
+		<div>
+			<input type="submit" value="Create">
+		</div>
+
+		<!-- Security against Cross-Site Request Forgery attack -->
+		{{ form.csrf_token }}
+
+	</form>
 {% endblock %}
