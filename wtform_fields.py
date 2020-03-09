@@ -17,6 +17,7 @@ class RegistrationForm(FlaskForm):
 		EqualTo('password', message="Passwords must match")])
 	submit_button = SubmitField('Create')
 
+	# Custom validator for the username
 	def validate_username(self, username):
 		user_object = User.query.filter_by(username=username.data).first();
 		if user_object:

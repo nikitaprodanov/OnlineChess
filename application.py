@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from passlib.hash import pbkdf2_sha256
 
 from wtform_fields import *
 from models import *
@@ -19,8 +20,11 @@ def index():
 		username = reg_form.username.data
 		password = reg_form.password.data
 
+		# Hashing the password
+		hashed_pswd = pbkdf2_sha256.hash(password)
+
 		# If no such username add the user to the database
-		user = User(username=username, password=password)
+		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
 		return "Inserted into the database"
