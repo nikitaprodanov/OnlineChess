@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from passlib.hash import pbkdf2_sha256
+from flask import Flask, render_template, redirect, url_for
 
 from wtform_fields import *
 from models import *
@@ -27,9 +26,19 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
-		return "Inserted into the database"
+		return redirect(url_for('login'))
 
 	return render_template("index.html", form=reg_form)
+
+@app.route("/login.html", methods=['GET', 'POST'])
+def login():
+
+	login_form = LoginForm()
+
+	if login_form.validate_on_submit():
+		return "Logged in successfully"
+
+	return render_template("login.html", form=login_form)
 
 if __name__ == "__main__":
 	app.run(debug=True)
