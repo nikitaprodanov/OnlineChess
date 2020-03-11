@@ -11,6 +11,7 @@ app.secret_key = 'replace later'
 app.config['SQLALCHEMY_DATABASE_URI']='postgres://kcszumbnyngcpe:b6bff3fa03331de5fa50e583ab82b05524c0e1b1551fdc98673a56c558fbff29@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d8ru7iuptl4q1i'
 db = SQLAlchemy(app)
 
+# Registration route
 @app.route("/", methods=['GET', 'POST'])
 def index():
 
@@ -30,7 +31,8 @@ def index():
 
 	return render_template("index.html", form=reg_form)
 
-@app.route("/login.html", methods=['GET', 'POST'])
+# Login route
+@app.route("/login", methods=['GET', 'POST'])
 def login():
 
 	login_form = LoginForm()
