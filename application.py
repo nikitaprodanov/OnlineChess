@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_login import LoginManager, login_user, current_user
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 
 from wtform_fields import *
 from models import *
@@ -57,6 +57,18 @@ def login():
 		return "Not logged in"
 
 	return render_template("login.html", form=login_form)
+
+# Route for lobby ONLY for logged in users
+@app.route("/lobby", methods=['GET', 'POST'])
+@login_required
+def lobby():
+	return "Find match"
+
+# Logging out a user
+@app.route("/logout", methods=['GET'])
+def logout():
+	logout_user()
+	return "Logged out using flask login"
 
 if __name__ == "__main__":
 	app.run(debug=True)
