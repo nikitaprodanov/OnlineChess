@@ -51,10 +51,7 @@ def login():
 	if login_form.validate_on_submit():
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
-		if current_user.is_authenticated:
-			return "Logged in with flask login"
-
-		return "Not logged in"
+		return redirect(url_for('lobby'))
 
 	return render_template("login.html", form=login_form)
 
