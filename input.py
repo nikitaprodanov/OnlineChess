@@ -75,7 +75,7 @@ def input_check(input):
 			if input[2] in numeral_positions:
 				if input[3] in figures and input[3] != 'e':
 					move = "Promotion"
-			
+	return move			
 
 
 
