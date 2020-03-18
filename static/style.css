@@ -12,6 +12,8 @@ body {
 
 h1{
   color: #cac4c4;
+  font-weight: bold;
+  font-size: 50px;
   font-style: oblique;
   font-family: "Georgia"; 
 }
@@ -51,4 +53,16 @@ input[type=submit]{
 input[type=submit]:hover{
   color: black;
    background-image: linear-gradient(to right, #897b7b, white, #897b7b);
+}
+h2 {
+  color: #cac4c4;
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 50px;
+  font-family: "Georgia";
+}
+p {
+  color: white;
+  font-style: oblique;
+  font-family: "Georgia";
 }
