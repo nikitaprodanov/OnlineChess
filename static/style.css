@@ -7,10 +7,11 @@ body {
   min-height: 100vh;
   font-size: 1.5rem;
   background-image: url("background.jpg");
+  background-position: 50% 45%;
 }
 
 h1{
-  color: #897b7b;
+  color: #cac4c4;
   font-style: oblique;
   font-family: "Georgia"; 
 }
