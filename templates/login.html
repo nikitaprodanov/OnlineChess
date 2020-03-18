@@ -1,0 +1,28 @@
+{% from 'form_helper.html' import displayField %}
+
+{% extends "prelogin-layout.html" %}
+
+{% block title %}Login {% endblock %}
+
+{% block content %}
+
+	<!-- Login page html -->
+	<h2>Login</h2>
+	<p>Enter your username and password to OnlineChess</p>
+
+	<form action="{{ url_for('login')}}", method="POST">
+		<!-- Username field -->
+		{{ displayField(form.username, 'Username', autocomplete='off', autofocus=true)}}
+
+		<!-- Password field -->
+		{{ displayField(form.password, 'Password')}}
+		
+		<!-- Submit button -->
+		<div>
+			{{ form.submit_button }}
+		</div>
+
+		<!-- Security against Cross-Site Request Forgery attack -->
+		{{ form.csrf_token }}
+	</form>
+{% endblock %}
