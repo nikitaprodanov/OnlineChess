@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 
+from flask_soketio import SocketIO, send
+
 from wtform_fields import *
 from models import *
 
@@ -11,6 +13,9 @@ app.secret_key = 'replace later'
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI']='postgres://kcszumbnyngcpe:b6bff3fa03331de5fa50e583ab82b05524c0e1b1551fdc98673a56c558fbff29@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d8ru7iuptl4q1i'
 db = SQLAlchemy(app)
+
+# Initialize Flask-SocketIO
+socketio = SocketIO(app)
 
 # Configure login manager
 login = LoginManager()
@@ -67,5 +72,12 @@ def logout():
 	logout_user()
 	return "Logged out using flask login"
 
+# Event handler
+@socketio.on('message')
+def message(data):
+	print(f"\n\n{data}\n\n")
+	send(data)
+
+
 if __name__ == "__main__":
-	app.run(debug=True)
+	socketio.run(app, debug=True)
