@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	socket.on('message', data => {
 		const p = document.createElement('p');
+		const span_username = document.createElement('span');
 		const br = document.createElement('br');
-		p.innerHTML = data;
+		span_username.innerHTML = data.username;
+		p.innerHTML = span_username.outerHTML + br.outerHTML + data.msg + br.outerHTML;
 		document.querySelector('.display-message-section').append(p);
 	});
 
@@ -17,6 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	document.querySelector('.send-message').onclick = () => {
-		socket.send(document.querySelector('.user-message').value);
+		socket.send({'msg': document.querySelector('.user-message').value, 'username': username});
 	}
 })

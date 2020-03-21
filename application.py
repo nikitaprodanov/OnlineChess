@@ -64,7 +64,7 @@ def login():
 @app.route("/lobby", methods=['GET', 'POST'])
 # @login_required
 def lobby():
-	return render_template('lobby.html')
+	return render_template('lobby.html', username=current_user.username)
 
 # Logging out a user
 @app.route("/logout", methods=['GET'])
