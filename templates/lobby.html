@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<body>
+		<!-- Navigation bar -->
+		<nav>
+			
+		</nav>
+
+		<div class="main-section">
+			<!-- Room selection -->
+			
+			<nav class="sidebar">
+				
+			</nav>
+
+
+			<!-- Message area -->
+			<div class="right-side-pannel">
+				<div class="display-message-section">
+					
+				</div>
+
+				<!-- Input area -->
+				<div class="input-area">
+					<input type="text" class="user-message" placeholder="Type here..." autocomplete="off">
+					<button type="button" class="send-message">SEND</button>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- SocketIO JS -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+		<!-- Custom SocketIO JS -->
+		<script src="{{ url_for('static', filename='scripts/socketio.js') }}"></script>
+
+	</body>
+</html>

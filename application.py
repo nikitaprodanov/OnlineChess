@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 
-from flask_soketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
 
 from wtform_fields import *
 from models import *
@@ -62,9 +62,9 @@ def login():
 
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
-@login_required
+# @login_required
 def lobby():
-	return "Find match"
+	return render_template('lobby.html')
 
 # Logging out a user
 @app.route("/logout", methods=['GET'])
@@ -75,8 +75,9 @@ def logout():
 # Event handler
 @socketio.on('message')
 def message(data):
-	print(f"\n\n{data}\n\n")
+	# print(f"\n\n{data}\n\n")
 	send(data)
+	# emit('some-event', 'this is a custom event message')
 
 
 if __name__ == "__main__":
