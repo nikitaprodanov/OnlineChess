@@ -1,7 +1,9 @@
+from time import localtime, strftime
+
 from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 
-from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 from wtform_fields import *
 from models import *
@@ -16,6 +18,9 @@ db = SQLAlchemy(app)
 
 # Initialize Flask-SocketIO
 socketio = SocketIO(app)
+
+ # Predefined rooms
+ROOMS = ["lobby", "news", "rules"]
 
 # Configure login manager
 login = LoginManager()
@@ -66,7 +71,7 @@ def login():
 def lobby():
 	send_form = EnterMessageForm()
 
-	return render_template('lobby.html', form=send_form, username=current_user.username)
+	return render_template('lobby.html', form=send_form, username=current_user.username, rooms=ROOMS)
 
 # Logging out a user
 @app.route("/logout", methods=['GET'])
@@ -78,9 +83,22 @@ def logout():
 @socketio.on('message')
 def message(data):
 	# print(f"\n\n{data}\n\n")
-	send(data)
+	send({'msg': data['msg'], 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 	# emit('some-event', 'this is a custom event message')
 
+ # Joining a room
+@socketio.on('join')
+def join(data):
+
+	join_room(data['room'])
+	send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
+
+ # Leaving a room
+@socketio.on('leave')
+def leave(data):
+
+	leave_room(data['room'])
+	send({'msg': data['username'] + " has left the " + data['room'] + " room."}, room=data['room'])
 
 if __name__ == "__main__":
 	socketio.run(app, debug=True)
