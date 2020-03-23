@@ -1,3 +1,5 @@
+{% from 'form_helper.html' import displayField %}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,8 +33,13 @@
 
 				<!-- Input area -->
 				<div class="input-area">
-					<input type="text" class="user-message" placeholder="Type here..." autocomplete="off">
-					<button type="button" class="send-message">SEND</button>
+
+					{{ displayField(form.message, 'Type here ...', class_='user-message') }}
+
+					<div class="send-message">
+						{{ form.submit_button }}
+					</div>
+
 				</div>
 			</div>
 
