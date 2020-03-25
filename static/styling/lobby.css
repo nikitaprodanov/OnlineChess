@@ -7,16 +7,17 @@ nav	{
 }
 
 h4 {
-	background-color: grey;
+	background-color: #3B170B;
 	align-items: center;
 	font-weight: bold;
-  	font-size: 1.5rem;
-  	font-style: oblique;
-  	font-family: "Georgia";
-  	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  color: #ffcc33;
+  font-size: 1.5rem;
+  font-style: oblique;
+  font-family: "Georgia";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
@@ -41,13 +42,22 @@ p {
 	right: 8px;
 	float: right;
 	height: 100em;
-    width: 290px;
-    color: black;
-    background-color: grey;
+  width: 290px;
+  color: #ffcc33;
+  background-color: #3B170B;
 }
 
-.input-area {
+input[type=text] {
+  color: #ffcc33;
+  background-color: #3B170B;
+  border: 2px solid black;
+  font-size: 1em;
+}
 
+input[type=text]:hover {
+  color: #3B170B;
+  border: none;
+  background-image: linear-gradient(to right ,white, #ffcc33);
 }
 
 .user-message {
@@ -58,15 +68,16 @@ p {
     margin-left: -50px;
     width: 25em;
     height: 2em;
+    color: #ffcc33;
 }
 
 input[type=submit] {
-	color: black;
-  	background-color: #897b7b;
+	color: #ffcc33;
+  	background-color: #3B170B;
   	border: 1px solid black;
   	text-align: center;
   	font-size: 24px;
-  	width: 310px;
+  	width: 405px;
   	position: absolute;
   	transition-duration: 0.4s;
 
@@ -80,13 +91,14 @@ input[type=submit] {
 
 input[type=submit]:hover{
 	color: black;
-    background-image: linear-gradient(to right, #897b7b, white, #897b7b);
+    background-image: linear-gradient(to right, #3B170B, white, #3B170B);
 }
 
 .select-room {
 	font-size: 24px;
 	height: 50px;
-    width: 100px;
-    background-color: #cac4c4;
+  width: 100px;
+  background-color: #3B170B;
+  color: #ffcc33;
 
 }
