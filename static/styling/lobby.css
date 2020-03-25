@@ -1,5 +1,5 @@
 body {
-
+	background-image: url(background2.png); 
 }
 
 nav	{
@@ -7,7 +7,16 @@ nav	{
 }
 
 h4 {
-
+	background-color: grey;
+	align-items: center;
+	font-weight: bold;
+  	font-size: 1.5rem;
+  	font-style: oblique;
+  	font-family: "Georgia";
+  	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 p {
@@ -27,7 +36,14 @@ p {
 }
 
 .display-message-section {
-
+	position: absolute;
+	top: 70px;
+	right: 8px;
+	float: right;
+	height: 100em;
+    width: 290px;
+    color: black;
+    background-color: grey;
 }
 
 .input-area {
@@ -35,13 +51,42 @@ p {
 }
 
 .user-message {
-
+	position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-top: -200px;
+    margin-left: -50px;
+    width: 25em;
+    height: 2em;
 }
 
-.send-message {
+input[type=submit] {
+	color: black;
+  	background-color: #897b7b;
+  	border: 1px solid black;
+  	text-align: center;
+  	font-size: 24px;
+  	width: 310px;
+  	position: absolute;
+  	transition-duration: 0.4s;
 
+  	position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-top: -150px;
+    margin-left: -50px;
+	
+}
+
+input[type=submit]:hover{
+	color: black;
+    background-image: linear-gradient(to right, #897b7b, white, #897b7b);
 }
 
 .select-room {
+	font-size: 24px;
+	height: 50px;
+    width: 100px;
+    background-color: #cac4c4;
 
 }
