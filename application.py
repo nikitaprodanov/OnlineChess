@@ -71,6 +71,7 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
+		text = 'new account made with username: ' + str(username) + '.' 
 		return redirect(url_for('login'))
 
 	return render_template("index.html", form=reg_form)
@@ -84,7 +85,7 @@ def login():
 	if login_form.validate_on_submit():
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
-		text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged in.'
+		text = 'user: ' + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged in.'
 		i_logger(text)
 		return redirect(url_for('lobby'))
 	text = "failed attempt to login."
