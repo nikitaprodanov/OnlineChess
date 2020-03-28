@@ -1,5 +1,5 @@
 body {
-	background-image: url(background2.png); 
+	background: #D4965F; 
 }
 
 nav	{
@@ -64,8 +64,8 @@ input[type=text]:hover {
 	position: absolute;
     top: 50%;
     left: 45%;
-    margin-top: -200px;
-    margin-left: -50px;
+    margin-top: -400px;
+    margin-left: -110px;
     width: 25em;
     height: 2em;
     color: #ffcc33;
@@ -84,8 +84,8 @@ input[type=submit] {
   	position: absolute;
     top: 50%;
     left: 45%;
-    margin-top: -150px;
-    margin-left: -50px;
+    margin-top: -350px;
+    margin-left: -110px;
 	
 }
 
