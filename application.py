@@ -48,11 +48,6 @@ def w_logger(text):
 	date = time_now.strftime("%D %T ")
 	logging.warning(date + text)
 
-def e_logger(text):
-	time_now = datetime.now()
-	date = time_now.strftime("%D %T ")
-	logging.error(date + text)
-
 @login.user_loader
 def load_user(id):
 
