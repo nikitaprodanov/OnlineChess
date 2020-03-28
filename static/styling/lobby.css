@@ -1,0 +1,104 @@
+body {
+	background: #D4965F; 
+}
+
+nav	{
+
+}
+
+h4 {
+	background-color: #3B170B;
+	align-items: center;
+	font-weight: bold;
+  color: #ffcc33;
+  font-size: 1.5rem;
+  font-style: oblique;
+  font-family: "Georgia";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+
+}
+
+.main-section {
+
+}
+
+.sidebar {
+
+}
+
+.right-side-pannel {
+
+}
+
+.display-message-section {
+	position: absolute;
+	top: 70px;
+	right: 8px;
+	float: right;
+	height: 100em;
+  width: 1000px;
+  color: #ffcc33;
+  background-color: #3B170B;
+}
+
+input[type=text] {
+  color: #ffcc33;
+  background-color: #3B170B;
+  border: 2px solid black;
+  font-size: 1em;
+}
+
+input[type=text]:hover {
+  color: #3B170B;
+  border: none;
+  background-image: linear-gradient(to right ,white, #ffcc33);
+}
+
+.user-message {
+	position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-top: -400px;
+    margin-left: -500px;
+    width: 25em;
+    height: 2em;
+    color: #ffcc33;
+}
+
+input[type=submit] {
+	color: #ffcc33;
+  	background-color: #3B170B;
+  	border: 1px solid black;
+  	text-align: center;
+  	font-size: 24px;
+  	width: 405px;
+  	position: absolute;
+  	transition-duration: 0.4s;
+
+  	position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-top: -350px;
+    margin-left: -500px;
+	
+}
+
+input[type=submit]:hover{
+	color: black;
+    background-image: linear-gradient(to right, #3B170B, white, #3B170B);
+}
+
+.select-room {
+	font-size: 24px;
+	height: 50px;
+  width: 100px;
+  background-color: #3B170B;
+  color: #ffcc33;
+
+}

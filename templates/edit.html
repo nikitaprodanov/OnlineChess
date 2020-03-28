@@ -1,0 +1,21 @@
+{% from 'form_helper.html' import displayField %}
+{% extends 'prelogin-layout.html' %}
+
+{% block title %}Edit {% endblock %}
+
+{% block content %}
+	<h2>Edit your username</h2>
+
+	<form action="{{ url_for('edit')}}" method="POST">
+		{{ displayField(form.cur_username, 'Current Username', autocomplete="off", autofocus=true)}}
+
+		{{ displayField(form.new_username, 'New Username', autocomplete="off")}}
+
+		<div>
+			{{ form.submit_button }}
+		</div>
+
+		{{ form.csrf_token }}
+
+	</form>
+{% endblock %}

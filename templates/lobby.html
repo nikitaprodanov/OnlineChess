@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<meta charset="utf-8">
+		<title>Lobby- OnlineChess</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styling/lobby.css')}}">
 	</head>
 
 	<body>
@@ -39,7 +41,7 @@
 				<!-- Input area -->
 				<div class="input-area">
 
-					{{ displayField(form.message, 'Type here ...', class_='user-message') }}
+					{{ displayField(form.message, 'Type here ...', class_='user-message', autocompete="off") }}
 
 					<div class="send-message">
 						{{ form.submit_button }}

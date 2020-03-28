@@ -3,6 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, EqualTo, ValidationError
 from models import User
 from passlib.hash import pbkdf2_sha256
+from flask_login import current_user
 
 class RegistrationForm(FlaskForm):
 	""" Registration form """
@@ -44,7 +45,28 @@ class LoginForm(FlaskForm):
 
 class EnterMessageForm(FlaskForm):
 	""" Enter message form """
-
+	
 	message = StringField('message_label', 
-		validators=[InputRequired(message="Ypu have to type something")])
+		validators=[InputRequired(message="You have to type something")])
 	submit_button = SubmitField('SEND')
+
+class EditUsernameForm(FlaskForm):
+	""" Edit username form """
+
+	cur_username = StringField('cur_username_label',
+		validators=[InputRequired(message="Current username required")])
+	new_username = StringField('new_username_label',
+		validators=[InputRequired(message="New username required"),
+		Length(min=4, max=25, message="New username must be between 4 and 25 charachters")])
+	submit_button = SubmitField('Edit')
+
+	# Check if current username is real
+	def validate_cur_username(self, cur_username):
+		if not(current_user.username == cur_username.data):
+			raise ValidationError("Please enter your current username")
+
+	# Check if new username isn`t taken
+	def validate_new_username(self, new_username):
+		user_object = User.query.filter_by(username=new_username.data).first()
+		if user_object:
+			raise ValidationError("This username is already taken. Please try another one")

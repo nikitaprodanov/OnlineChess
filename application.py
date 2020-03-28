@@ -7,6 +7,8 @@ from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 from wtform_fields import *
 from models import *
+from datetime import datetime
+import logging
 
 # Configure app
 app = Flask(__name__)
@@ -25,6 +27,22 @@ ROOMS = ["lobby", "news", "rules"]
 # Configure login manager
 login = LoginManager()
 login.init_app(app)
+
+# Logging configuration
+logging.basicConfig(filename = 'logs.log', level=logging.DEBUG)
+app.logger.disabled = True
+log = logging.getLogger('werkzeug')
+log.disabled = True
+
+def i_logger(text):
+	time_now = datetime.now()
+	date = time_now.strftime("%D %T ")
+	logging.info(date + text)
+
+def w_logger(text):
+	time_now = datetime.now()
+	date = time_now.strftime("%D %T ")
+	logging.warning(date + text)
 
 @login.user_loader
 def load_user(id):
@@ -48,6 +66,8 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
+		text = 'new account made with username: ' + str(username) + '.'
+		w_logger(text) 
 		return redirect(url_for('login'))
 
 	return render_template("index.html", form=reg_form)
@@ -61,13 +81,32 @@ def login():
 	if login_form.validate_on_submit():
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
+		text = 'user: ' + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged in.'
+		i_logger(text)
 		return redirect(url_for('lobby'))
-
+	text = "failed attempt to login."
+	w_logger(text)
 	return render_template("login.html", form=login_form)
+
+# Edit route
+@app.route("/edit", methods=['GET', 'POST'])
+@login_required
+def edit():
+	edit_form = EditUsernameForm()
+
+	if edit_form.validate_on_submit():
+		user = User.query.filter_by(username=edit_form.cur_username.data).first()
+		user.username = edit_form.new_username.data
+		db.session.commit()
+		text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
+		i_logger(text)
+		return redirect(url_for('logout'))
+
+	return render_template("edit.html", form=edit_form)
 
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
-# @login_required
+@login_required
 def lobby():
 	send_form = EnterMessageForm()
 
@@ -76,12 +115,16 @@ def lobby():
 # Logging out a user
 @app.route("/logout", methods=['GET'])
 def logout():
+	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged out.'
+	i_logger(text)
 	logout_user()
-	return "Logged out using flask login"
+	return redirect(url_for('login'))
 
 # Event handler
 @socketio.on('message')
 def message(data):
+	text = ' Website accessed.'
+	w_logger(text)
 	# print(f"\n\n{data}\n\n")
 	send({'msg': data['msg'], 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 	# emit('some-event', 'this is a custom event message')
@@ -89,14 +132,16 @@ def message(data):
  # Joining a room
 @socketio.on('join')
 def join(data):
-
+	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' joined a room.'
+	i_logger(text)
 	join_room(data['room'])
 	send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
 
  # Leaving a room
 @socketio.on('leave')
 def leave(data):
-
+	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' left the room.'
+	i_logger(text)
 	leave_room(data['room'])
 	send({'msg': data['username'] + " has left the " + data['room'] + " room."}, room=data['room'])
 
