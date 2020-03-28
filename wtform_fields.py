@@ -41,3 +41,10 @@ class LoginForm(FlaskForm):
 			raise ValidationError("Username or password is incorrect")
 		elif not pbkdf2_sha256.verify(password.data, user_object.password):
 			raise ValidationError("Username or password is incorrect")
+
+class EnterMessageForm(FlaskForm):
+	""" Enter message form """
+
+	message = StringField('message_label', 
+		validators=[InputRequired(message="Ypu have to type something")])
+	submit_button = SubmitField('SEND')
