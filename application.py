@@ -1,3 +1,7 @@
+#text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
+#i_logger(text)
+
+
 from time import localtime, strftime
 
 from flask import Flask, render_template, redirect, url_for
@@ -71,7 +75,8 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
-		text = 'new account made with username: ' + str(username) + '.' 
+		text = 'new account made with username: ' + str(username) + '.'
+		w_logger(text) 
 		return redirect(url_for('login'))
 
 	return render_template("index.html", form=reg_form)
