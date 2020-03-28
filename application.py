@@ -94,8 +94,15 @@ def login():
 
 # Edit route
 @app.route("/edit", methods=['GET', POST])
+@login_required
 def edit():
-	
+	edit_form = EditUsernameForm()
+
+	if edit_form.validate_on_submit():
+		user = User.query.filter_by(username=edit_form.cur_username.data).first()
+		user.username = edit_form.new_username.data
+		db.session.commit()
+		return redirect(url_for('logout'))
 
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
@@ -111,7 +118,7 @@ def logout():
 	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged out.'
 	i_logger(text)
 	logout_user()
-	return "Logged out using flask login"
+	return redirect(url_for('login'))
 
 # Event handler
 @socketio.on('message')
