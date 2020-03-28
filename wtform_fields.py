@@ -44,7 +44,7 @@ class LoginForm(FlaskForm):
 
 class EnterMessageForm(FlaskForm):
 	""" Enter message form """
-
+	
 	message = StringField('message_label', 
 		validators=[InputRequired(message="Ypu have to type something")])
 	submit_button = SubmitField('SEND')

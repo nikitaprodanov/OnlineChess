@@ -42,7 +42,7 @@ p {
 	right: 8px;
 	float: right;
 	height: 100em;
-  width: 290px;
+  width: 1000px;
   color: #ffcc33;
   background-color: #3B170B;
 }
@@ -65,7 +65,7 @@ input[type=text]:hover {
     top: 50%;
     left: 45%;
     margin-top: -400px;
-    margin-left: -110px;
+    margin-left: -500px;
     width: 25em;
     height: 2em;
     color: #ffcc33;
@@ -85,7 +85,7 @@ input[type=submit] {
     top: 50%;
     left: 45%;
     margin-top: -350px;
-    margin-left: -110px;
+    margin-left: -500px;
 	
 }
 
