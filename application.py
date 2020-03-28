@@ -93,9 +93,10 @@ def login():
 	return render_template("login.html", form=login_form)
 
 
+
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
-# @login_required
+@login_required
 def lobby():
 	send_form = EnterMessageForm()
 
