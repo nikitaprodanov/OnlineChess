@@ -92,7 +92,10 @@ def login():
 	w_logger(text)
 	return render_template("login.html", form=login_form)
 
-
+# Edit route
+@app.route("/edit", methods=['GET', POST])
+def edit():
+	
 
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
