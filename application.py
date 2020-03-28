@@ -1,7 +1,3 @@
-#text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
-#i_logger(text)
-
-
 from time import localtime, strftime
 
 from flask import Flask, render_template, redirect, url_for
@@ -102,6 +98,8 @@ def edit():
 		user = User.query.filter_by(username=edit_form.cur_username.data).first()
 		user.username = edit_form.new_username.data
 		db.session.commit()
+		text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
+		i_logger(text)
 		return redirect(url_for('logout'))
 
 	return render_template("edit.html", form=edit_form)
