@@ -58,6 +58,7 @@ class EditUsernameForm(FlaskForm):
 	new_username = StringField('new_username_label',
 		validators=[InputRequired(message="New username required"),
 		Length(min=4, max=25, message="New username must be between 4 and 25 charachters")])
+	submit_button = SubmitField('Edit')
 
 	# Check if current username is real
 	def validate_cur_username(self, cur_username):

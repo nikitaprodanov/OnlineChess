@@ -93,7 +93,7 @@ def login():
 	return render_template("login.html", form=login_form)
 
 # Edit route
-@app.route("/edit", methods=['GET', POST])
+@app.route("/edit", methods=['GET', 'POST'])
 @login_required
 def edit():
 	edit_form = EditUsernameForm()
@@ -103,6 +103,8 @@ def edit():
 		user.username = edit_form.new_username.data
 		db.session.commit()
 		return redirect(url_for('logout'))
+
+	return render_template("edit.html", form=edit_form)
 
 # Route for lobby ONLY for logged in users
 @app.route("/lobby", methods=['GET', 'POST'])
