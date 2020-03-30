@@ -1,0 +1,68 @@
+body {
+  font-family: 'Poppins', sans-serif; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  background-image: url("background.jpg");
+  background-position: 50% 45%;
+}
+
+h1{
+  color: #cac4c4;
+  font-weight: bold;
+  font-size: 50px;
+  font-style: oblique;
+  font-family: "Georgia"; 
+}
+
+input[type=password]:focus {
+  color: black;
+  border: none;
+  background-image: linear-gradient(to right ,white, #897b7b);
+  
+}
+input[type=password]{
+  width: 310px;
+  font-size: 15px;
+  border: 2px solid black; 
+}
+
+input[type=text]:focus {
+  color: black;
+  border: none;
+  background-image: linear-gradient(to right ,white, #897b7b);
+  
+}
+input[type=text]{
+  width: 310px;
+  font-size: 15px;
+  border: 2px solid black; 
+}
+input[type=submit]{
+  color: black;
+  background-color: #897b7b;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 24px;
+  width: 310px;
+  transition-duration: 0.4s;
+}
+input[type=submit]:hover{
+  color: black;
+   background-image: linear-gradient(to right, #897b7b, white, #897b7b);
+}
+h2 {
+  color: #cac4c4;
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 50px;
+  font-family: "Georgia";
+}
+p {
+  color: white;
+  font-style: oblique;
+  font-family: "Georgia";
+}
