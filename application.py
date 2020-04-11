@@ -141,7 +141,12 @@ def join(data):
 	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' joined a room.'
 	i_logger(text)
 	join_room(data['room'])
-	send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
+	if data['room'] == current_user.username:
+		send({'msg': data['username'] + " has joined his own " + data['room'] + " private match room."}, room=data['room'])
+	elif data['room'] in AVAILABLE and data['room'] != current_user.username:
+		send({'msg': data['username'] + " has challanged " + data['room']}, room=data['room'])
+	else:
+		send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
 
  # Leaving a room
 @socketio.on('leave')
