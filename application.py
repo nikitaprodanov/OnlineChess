@@ -21,8 +21,11 @@ db = SQLAlchemy(app)
 # Initialize Flask-SocketIO
 socketio = SocketIO(app)
 
- # Predefined rooms
+# Predefined rooms
 ROOMS = ["lobby", "news", "rules"]
+
+# Players private rooms
+AVAILABLE = []
 
 # Configure login manager
 login = LoginManager()
@@ -81,6 +84,7 @@ def login():
 	if login_form.validate_on_submit():
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
+		AVAILABLE.append(str(user_object.username))
 		text = 'user: ' + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged in.'
 		i_logger(text)
 		return redirect(url_for('lobby'))
@@ -110,13 +114,15 @@ def edit():
 def lobby():
 	send_form = EnterMessageForm()
 
-	return render_template('lobby.html', form=send_form, username=current_user.username, rooms=ROOMS)
+	return render_template('lobby.html', form=send_form, username=current_user.username, rooms=ROOMS, players=AVAILABLE)
 
 # Logging out a user
 @app.route("/logout", methods=['GET'])
 def logout():
 	text = " user: " + str(current_user.username) + ' with id:' + str(current_user.id) + ' logged out.'
 	i_logger(text)
+	index = AVAILABLE.index(current_user.username)
+	AVAILABLE.pop(index)
 	logout_user()
 	return redirect(url_for('login'))
 
