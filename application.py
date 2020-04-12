@@ -9,6 +9,7 @@ from wtform_fields import *
 from models import *
 from datetime import datetime
 import logging
+from game import *
 
 # Configure app
 app = Flask(__name__)
@@ -131,9 +132,12 @@ def logout():
 def message(data):
 	text = ' Website accessed.'
 	w_logger(text)
-	# print(f"\n\n{data}\n\n")
-	send({'msg': data['msg'], 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
-	# emit('some-event', 'this is a custom event message')
+	my_input = data['msg']
+	if my_input[0] == '/' and my_input[-1] == '/':
+		result = game(my_input)
+		send({'msg': result, 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])		
+	else:
+		send({'msg': my_input, 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 
  # Joining a room
 @socketio.on('join')
