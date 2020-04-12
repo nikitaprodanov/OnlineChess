@@ -135,7 +135,9 @@ def message(data):
 	my_input = data['msg']
 	if my_input[0] == '/' and my_input[-1] == '/':
 		result = game(my_input)
-		send({'msg': result, 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])		
+		send({'msg': data['msg'], 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
+		for x in result:
+			send({'msg': x}, room=data['room'])
 	else:
 		send({'msg': my_input, 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 

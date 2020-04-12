@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (data.username) {
 			span_username.innerHTML = data.username;
 			span_timestamp.innerHTML = data.time_stamp;
-			p.innerHTML = span_username.outerHTML + br.outerHTML + data.msg + br.outerHTML + span_timestamp.outerHTML;
+			p.innerHTML = span_username.outerHTML + br.outerHTML;
+			p.innerHTML += data.msg;
+			p.innerHTML += br.outerHTML + span_timestamp.outerHTML;
 			document.querySelector('.display-message-section').append(p);
 		}
 		else {
@@ -26,8 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	socket.on('some-event', data => {
-		console.log(`${data}`);
+	socket.on('handle-move', data => {
+		const p = document.createElement('p');
+		const span_username = document.createElement('span');
+		const span_timestamp = document.createElement('span');
+		const br = document.createElement('br');
+
+		p.innerHTML = data.msg + br.outerHTML;
 	});
 
 	// Send messages
