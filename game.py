@@ -27,8 +27,6 @@ def start_game(board):
 
 def move(input, board):
  	result = ""
- 	# del input[0]
- 	# del input[-1]
  	board.push_san(str(input))
  	result = print_board(board)
  	return result
