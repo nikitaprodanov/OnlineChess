@@ -11,6 +11,9 @@ def game(input):
 			result_board.append(line)
 			line = ""
 			continue
+		if string_board[p] == '.':
+			line += '¤'
+			continue
 		line += string_board[p]
 	result_board.append(line)
 	return result_board
