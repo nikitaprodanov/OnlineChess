@@ -1,7 +1,6 @@
 import chess 
 
 board = chess.Board()
-# remember_board = chess.Board()
 
 def game(input):
 	result = ""
@@ -18,6 +17,8 @@ def game(input):
 	if uci_move in list_of_moves(board):
 		result = move(use_input, board)
 
+	if board.is_checkmate():
+		result.append("There is a checkmate. Type '/start/' if you want to start another game")
 	return result
 
 def list_of_moves(board):
@@ -30,13 +31,11 @@ def list_of_moves(board):
 def start_game(board):
 	result = ""
 	board = chess.Board()
-	# remember_board = chess.Board()		
 	result = print_board(board)
 	return result
 
 def to_uci(input):
-	# remember_board = board
-	uci_move = board.parse_san(str(input)) #remember_board.push_san(input)
+	uci_move = board.parse_san(str(input))
 	return str(uci_move)
 
 def move(input, board):
