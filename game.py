@@ -1,7 +1,8 @@
 import chess 
 
+board = chess.Board()
+
 def game(input):
-	board = chess.Board()
 	result = ""
 	if input == "/start/":
 		result = start_game(board)
