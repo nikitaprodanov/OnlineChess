@@ -8,7 +8,6 @@ def game(input, id):
 	result = ""
 	if input == "/start/":
 		result = start_game(board)
-		# set_first_player(id)
 		return result
 
 	if input == "/moves/":
@@ -33,10 +32,6 @@ def list_of_moves(board):
 		moves.append(str(move))
 
 	return moves
-
-# def set_first_player(id):
-# 	whos_playing = id
-# 	return whos_playing
 
 def start_game(board):
 	who_played = 0
