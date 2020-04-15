@@ -1,21 +1,27 @@
 import chess 
 
 board = chess.Board()
+who_played = 0
 
-def game(input):
+def game(input, id):
+	global who_played
 	result = ""
 	if input == "/start/":
 		result = start_game(board)
+		# set_first_player(id)
 		return result
 
 	if input == "/moves/":
 		result = list_of_moves(board)
 		return result
 
+	if who_played == id:
+		return ["Not your turn!!!"]		
 	use_input = input.replace('/', '')
 	uci_move = to_uci(use_input)
 	if uci_move in list_of_moves(board):
 		result = move(use_input, board)
+		who_played = id
 
 	if board.is_checkmate():
 		result.append("There is a checkmate. Type '/start/' if you want to start another game")
@@ -28,7 +34,12 @@ def list_of_moves(board):
 
 	return moves
 
+# def set_first_player(id):
+# 	whos_playing = id
+# 	return whos_playing
+
 def start_game(board):
+	who_played = 0
 	result = ""
 	board = chess.Board()
 	result = print_board(board)
