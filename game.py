@@ -2,8 +2,12 @@ import chess
 
 board = chess.Board()
 who_played = 0
+draw = 0
+draw_requested = 0
 
 def game(input, id):
+	global draw_requested
+	global draw
 	global who_played
 	result = ""
 	if input == "/start/":
@@ -13,6 +17,17 @@ def game(input, id):
 	if input == "/moves/":
 		result = list_of_moves(board)
 		return result
+	
+	if input == "/draw/" and draw_requested != id:
+		result = handle_draw()
+		draw_requested = id
+		return result
+	else:
+		return ["You send the offer, you can't accept it!"]
+
+	if input == "/cancel_draw/":
+		cancle_draw()
+		return ["Draw wasn't accepted"]
 
 	if who_played == id:
 		return ["Not your turn!!!"]		
@@ -33,8 +48,23 @@ def list_of_moves(board):
 
 	return moves
 
+def handle_draw():
+	global draw
+	draw += 1
+	if draw == 1:
+		return ["Draw offer sent", "Type '/draw/' to accept the offer", "or type '/cancle_draw/' to reject the draw offer"]
+	if draw == 2:
+		return ["Draw was accepted", "Start a new game by typing '/start/'!"]
+
+def cancle_draw():
+	draw = 0
+
 def start_game(board):
+	global draw_requested
+	global draw
 	who_played = 0
+	draw = 0
+	draw_requested = 0
 	result = ""
 	board = chess.Board()
 	result = print_board(board)
