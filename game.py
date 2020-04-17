@@ -22,7 +22,7 @@ def game(input, id):
 		result = handle_draw()
 		draw_requested = id
 		return result
-	else:
+	elif input == "/draw/" and draw_requested == id:
 		return ["You send the offer, you can't accept it!"]
 
 	if input == "/cancel_draw/":
@@ -38,7 +38,11 @@ def game(input, id):
 		who_played = id
 
 	if board.is_checkmate():
-		result.append("There is a checkmate. Type '/start/' if you want to start another game")
+		result.append("There is a checkmate. Type '/start/' if you want to start another game!")
+		winner_text = "User" + str(id) + " is the winner!!!"
+		result.append(str(winner_text))
+	if board.is_stalemate():
+		result.append("There is a stalemate on the board. Party results as a draw. Type '/start/' if you want to start new game!")
 	return result
 
 def list_of_moves(board):
