@@ -20,6 +20,11 @@ h4 {
   align-items: center;
 }
 
+.challenge-me {
+  padding-right: 40em;
+
+}
+
 p {
 
 }
@@ -41,7 +46,7 @@ p {
 	top: 70px;
 	right: 8px;
 	float: right;
-	height: 100em;
+	height: 420em;
   width: 1000px;
   color: #ffcc33;
   background-color: #3B170B;
@@ -66,9 +71,9 @@ input[type=text]:hover {
     left: 45%;
     margin-top: -400px;
     margin-left: -500px;
-    width: 25em;
-    height: 2em;
-    color: #ffcc33;
+    width: 33.5em;
+    height: 15em;
+    color: black; 
 }
 
 input[type=submit] {
@@ -82,7 +87,7 @@ input[type=submit] {
   	transition-duration: 0.4s;
 
   	position: absolute;
-    top: 50%;
+    top: 65%;
     left: 45%;
     margin-top: -350px;
     margin-left: -500px;
