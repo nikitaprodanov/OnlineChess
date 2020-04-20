@@ -10,24 +10,10 @@ def game(input, id):
 	global draw
 	global who_played
 	result = ""
-	if input == "/start/":
-		result = start_game(board)
-		return result
 
-	if input == "/moves/":
-		result = list_of_moves(board)
+	result = game_input(input, board, id)
+	if result:
 		return result
-	
-	if input == "/draw/" and draw_requested != id:
-		result = handle_draw()
-		draw_requested = id
-		return result
-	elif input == "/draw/" and draw_requested == id:
-		return ["You send the offer, you can't accept it!"]
-
-	if input == "/cancel_draw/":
-		cancle_draw()
-		return ["Draw wasn't accepted"]
 
 	if who_played == id:
 		return ["Not your turn!!!"]		
@@ -44,6 +30,29 @@ def game(input, id):
 	if board.is_stalemate():
 		result.append("There is a stalemate on the board. Party results as a draw. Type '/start/' if you want to start new game!")
 	return result
+
+
+
+def game_input(input, board, id):
+	global draw_requested
+	global draw
+	global who_played
+
+	if input == "/start/": 
+		return start_game(board)
+
+	if input == "/moves/":
+		return list_of_moves(board)
+	
+	if input == "/draw/" and draw_requested != id:
+		draw_requested = id
+		return handle_draw()
+	elif input == "/draw/" and draw_requested == id:
+		return ["You send the offer, you can't accept it!"]
+
+	if input == "/cancel_draw/":
+		cancle_draw()
+		return ["Draw wasn't accepted"]	
 
 def list_of_moves(board):
 	moves = []
