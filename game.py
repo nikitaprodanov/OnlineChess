@@ -23,15 +23,17 @@ def game(input, id):
 		result = move(use_input, board)
 		who_played = id
 
-	if board.is_checkmate():
-		result.append("There is a checkmate. Type '/start/' if you want to start another game!")
-		winner_text = "User" + str(id) + " is the winner!!!"
-		result.append(str(winner_text))
-	if board.is_stalemate():
-		result.append("There is a stalemate on the board. Party results as a draw. Type '/start/' if you want to start new game!")
+	if end_condition(board, id):	
+		result.append(str(end_condition(board, id)))
+	
 	return result
 
-
+def end_condition(board, id):
+	if board.is_checkmate(): 
+		winner_text = "User" + str(id) + " is the winner!!!" + "\n" + "There is a checkmate. Type '/start/' if you want to start another game!"
+		return str(winner_text)
+	if board.is_stalemate():
+		return "There is a stalemate on the board. Party results as a draw. Type '/start/' if you want to start new game!"
 
 def game_input(input, board, id):
 	global draw_requested
