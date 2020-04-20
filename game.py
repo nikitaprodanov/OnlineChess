@@ -44,7 +44,10 @@ def game_input(input, board, id):
 		return start_game(board)
 
 	if input == "/moves/":
-		return list_of_moves(board)
+		return [str(list_of_moves(board))]
+
+	if input == "/board/":
+		return print_board(board)
 	
 	if input == "/draw/" and draw_requested != id:
 		draw_requested = id
@@ -57,9 +60,9 @@ def game_input(input, board, id):
 		return ["Draw wasn't accepted"]	
 
 def list_of_moves(board):
-	moves = []
+	moves = ""
 	for move in board.legal_moves:
-		moves.append(str(move))
+		moves += (str(move) + " ")
 
 	return moves
 
