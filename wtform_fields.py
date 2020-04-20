@@ -4,6 +4,7 @@ from wtforms.validators import InputRequired, Length, EqualTo, ValidationError
 from models import User
 from passlib.hash import pbkdf2_sha256
 from flask_login import current_user
+from wtforms.widgets import TextArea
 
 class RegistrationForm(FlaskForm):
 	""" Registration form """
@@ -47,7 +48,8 @@ class EnterMessageForm(FlaskForm):
 	""" Enter message form """
 	
 	message = StringField('message_label', 
-		validators=[InputRequired(message="You have to type something")])
+		validators=[InputRequired(message="You have to type something")],
+		widget=TextArea())
 	submit_button = SubmitField('SEND')
 
 class EditUsernameForm(FlaskForm):
