@@ -51,7 +51,7 @@ class FlaskTestCase(unittest.TestCase):
 
 
 	"""REGISTER SECTION"""
-	"""Username Validation"""
+
 	#Ensure that register page was set up correctly
 	def test_register(self):
 		tester = app.test_client(self)
@@ -63,6 +63,8 @@ class FlaskTestCase(unittest.TestCase):
 		tester = app.test_client(self)
 		response = tester.get('/', content_type='html/text')
 		self.assertTrue(b'Get started' in response.data)
+
+	"""Username Validation"""
 
 	#Ensure that register page returns the correct response when the username is too short
 	def test_register_short_username(self):
@@ -119,6 +121,50 @@ class FlaskTestCase(unittest.TestCase):
 			follow_redirects=True
 		)
 		self.assertIn(b'Username already exists. Please choose another username', response.data)
+
+	"""Password Validation"""
+
+	#Ensure that register page returns the correct response when the password is too short
+	def test_register_short_password(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'a',
+				'confirm_pswd': 'a'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the password is too large
+	def test_register_long_password(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'qwertyuiopasdfghjklzxcvbnm',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the username has valid length
+	def test_register_valid_username(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'test',
+				'confirm_pswd': 'test'
+			},
+			follow_redirects=True
+		)
+		assert response.status == '200 OK'
 
 if __name__ == '__main__':
 	unittest.main()
