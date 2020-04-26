@@ -457,5 +457,19 @@ class FlaskTestCase(unittest.TestCase):
 		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
 		self.assertIn(b'Passwords must match', response.data)
 
+	"""UNAUTHORITIZED SECTION"""
+
+	#Ensure that edit page is not available when no user has logged in
+	def test_edit_unauthoritized(self):
+		tester = app.test_client(self)
+		response = tester.get('/edit', follow_redirects=True)
+		self.assertEqual(response.status_code, 401)
+
+	#Ensure that lobby page is not available when no user has logged in
+	def test_lobby_unauthoritized(self):
+		tester = app.test_client(self)
+		response = tester.get('/lobby', follow_redirects=True)
+		self.assertEqual(response.status_code, 401)
+
 if __name__ == '__main__':
 	unittest.main()
