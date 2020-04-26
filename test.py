@@ -1,9 +1,26 @@
-from application import app
+from application import app, db
 from flask import request, url_for
 from wtform_fields import *
 import unittest
+from flask_login import current_user, login_user, LoginManager
+from models import User
 
 class FlaskTestCase(unittest.TestCase):
+
+	def setUp(self):
+		self.app = app
+		self.client = self.app.test_client()
+		self._ctx = self.app.test_request_context()
+		self._ctx.push()
+
+		db.create_all()
+
+	def tearDown(self):
+		if self._ctx is not None:
+		   self._ctx.pop()
+
+		db.session.remove()
+		db.drop_all()
 
 	""" LOGIN SECTION """
 
@@ -470,6 +487,13 @@ class FlaskTestCase(unittest.TestCase):
 		tester = app.test_client(self)
 		response = tester.get('/lobby', follow_redirects=True)
 		self.assertEqual(response.status_code, 401)
+
+	"""AUTHORITIZED SECTION / REDIRECTS / DB TESTS"""
+
+	def test_login_works(self):
+		user_object = User.query.filter_by(username='User3').first()
+		login_user(user_object)
+		self.assertEqual(current_user.username, 'User3')
 
 if __name__ == '__main__':
 	unittest.main()
