@@ -152,8 +152,8 @@ class FlaskTestCase(unittest.TestCase):
 		)
 		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
 
-	#Ensure that register page returns the correct response when the username has valid length
-	def test_register_valid_username(self):
+	#Ensure that register page returns the correct response when the password has valid length
+	def test_register_valid_password(self):
 		tester = app.test_client(self)
 		response = tester.post(
 			'/',
@@ -161,6 +161,36 @@ class FlaskTestCase(unittest.TestCase):
 				'username': 'jojo',
 				'password': 'test',
 				'confirm_pswd': 'test'
+			},
+			follow_redirects=True
+		)
+		assert response.status == '200 OK'
+
+	"""Confirm Password Validation"""
+
+	#Ensure that register page returns the correct response when the confirm password does not match the given password
+	def test_register_confirm_pswd_not_match(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'test1',
+				'confirm_pswd': 'test2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the password and the confirm password field match
+	def test_register_confirm_pswd_match(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'test1',
+				'confirm_pswd': 'test1'
 			},
 			follow_redirects=True
 		)
