@@ -6,6 +6,7 @@ import unittest
 class FlaskTestCase(unittest.TestCase):
 
 	""" LOGIN SECTION """
+
 	#Ensure that falsk was set up correctly
 	def test_login(self):
 		tester = app.test_client(self)
@@ -18,6 +19,7 @@ class FlaskTestCase(unittest.TestCase):
 		response = tester.get('/login', content_type='html/text')
 		self.assertTrue(b'Login' in response.data)
 
+	#Ensure that login page responds correctly to correct credentials
 	def test_login_correct_credentials(self):
 		tester = app.test_client(self)
 		response = tester.post(
@@ -30,8 +32,8 @@ class FlaskTestCase(unittest.TestCase):
 		)
 		assert response.status == '200 OK'
 
-	#Ensure that login page behaves correctly on wrong credentials
-	def test_login_wrong_credentials(self):
+	#Ensure that login page behaves correctly on unexisting credentials
+	def test_login_unexisting_credentials(self):
 		tester = app.test_client(self)
 		response = tester.post(
 			'/login',
@@ -41,7 +43,33 @@ class FlaskTestCase(unittest.TestCase):
 			},
 			follow_redirects=True
 		)
-		self.assertIn(b'incorrect', response.data)
+		self.assertIn(b'Username or password is incorrect', response.data)
+
+	#Ensure that login page behaves correctly on unexisting username but existing password
+	def test_login_unexisting_username_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/login',
+			data={
+				'username': 'jojo',
+				'password': 'test'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username or password is incorrect', response.data)
+
+	#Ensure that login page behaves correctly on unverifyed password
+	def test_login_unverifyed_password_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/login',
+			data={
+				'username': 'User3',
+				'password': 'test1'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username or password is incorrect', response.data)
 
 	# #Ensure that logout works correctly
 	def test_logout_redirect(self):
