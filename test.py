@@ -196,5 +196,238 @@ class FlaskTestCase(unittest.TestCase):
 		)
 		assert response.status == '200 OK'
 
+	"""Combined Validation Errors"""
+
+	#Ensure that register page returns the correct response when the username and password are short
+	def test_register_short_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'j',
+				'password': 't',
+				'confirm_pswd': 't'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the username and password are long
+	def test_register_long_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'qwertyuiopasdfghjklzxcvbnm',
+				'password': 'qwertyuiopasdfghjklzxcvbnm',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the password is short and doesn't match the confirm password
+	def test_register_short_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 't1',
+				'confirm_pswd': 't2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the password is long and doesn't match the confirm password
+	def test_register_long_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'jojo',
+				'password': 'qwertyuiopasdfghjklzxcvbnm1',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is short and doesn't match the confirm password
+	def test_register_short_username_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'j',
+				'password': 'test1',
+				'confirm_pswd': 'test2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is long and doesn't match the confirm password
+	def test_register_long_username_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'qwertyuiopasdfghjklzxcvbnm',
+				'password': 'test1',
+				'confirm_pswd': 'test2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username and password are short and don't match
+	def test_register_short_username_short_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'j',
+				'password': 't1',
+				'confirm_pswd': 't2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username and password are long and don't match
+	def test_register_long_username_long_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'qwertyuiopasdfghjklzxcvbnm',
+				'password': 'qwertyuiopasdfghjklzxcvbnm1',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is short and password is long and don't match
+	def test_register_short_username_long_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'j',
+				'password': 'qwertyuiopasdfghjklzxcvbnm1',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is long and password is short and don't match
+	def test_register_long_username_short_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'qwertyuiopasdfghjklzxcvbnm',
+				'password': 't1',
+				'confirm_pswd': 't2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is taken and password is short
+	def test_register_taken_short_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'User3',
+				'password': 't',
+				'confirm_pswd': 't'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username already exists. Please choose another username', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the username is taken and password is long
+	def test_register_taken_long_credentials(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'User3',
+				'password': 'qwertyuiopasdfghjklzxcvbnm',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username already exists. Please choose another username', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+
+	#Ensure that register page returns the correct response when the username is taken and doesn't match the confirm password
+	def test_register_taken_username_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'User3',
+				'password': 'test1',
+				'confirm_pswd': 'test2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username already exists. Please choose another username', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is taken and password is short and don't match
+	def test_register_taken_username_short_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'User3',
+				'password': 't1',
+				'confirm_pswd': 't2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username already exists. Please choose another username', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
+	#Ensure that register page returns the correct response when the username is taken and password is long and don't match
+	def test_register_taken_username_long_password_not_matching(self):
+		tester = app.test_client(self)
+		response = tester.post(
+			'/',
+			data={
+				'username': 'User3',
+				'password': 'qwertyuiopasdfghjklzxcvbnm1',
+				'confirm_pswd': 'qwertyuiopasdfghjklzxcvbnm2'
+			},
+			follow_redirects=True
+		)
+		self.assertIn(b'Username already exists. Please choose another username', response.data)
+		self.assertIn(b'Password must be between 4 and 25 charachters', response.data)
+		self.assertIn(b'Passwords must match', response.data)
+
 if __name__ == '__main__':
 	unittest.main()
