@@ -2,7 +2,7 @@ from application import app, db
 from flask import request, url_for
 from wtform_fields import *
 import unittest
-from flask_login import current_user, login_user, LoginManager
+from flask_login import current_user, login_user, LoginManager, logout_user
 from models import User
 
 class FlaskTestCase(unittest.TestCase):
@@ -490,10 +490,18 @@ class FlaskTestCase(unittest.TestCase):
 
 	"""AUTHORITIZED SECTION / REDIRECTS / DB TESTS"""
 
+	#Ensure that login works correctly
 	def test_login_works(self):
 		user_object = User.query.filter_by(username='User3').first()
 		login_user(user_object)
 		self.assertEqual(current_user.username, 'User3')
+
+	#Ensure that logout works correctly
+	def test_logout_works(self):
+		user_object = User.query.filter_by(username='User3').first()
+		login_user(user_object)
+		logout_user()
+		self.assertTrue(current_user.is_anonymous)
 
 if __name__ == '__main__':
 	unittest.main()
