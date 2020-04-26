@@ -26,6 +26,20 @@ class FlaskTestCase(unittest.TestCase):
 		input = "e3"
 		self.assertEqual(to_uci(input), "e2e3")
 
+	def test_main_start(self):
+		board = chess.Board()
+		result = start_game(board)
+		self.assertEqual(game("/start/", 1), result)
+
+	def test_main_moveset(self):
+		board = chess.Board()
+		result = list_of_moves(board)
+		self.assertEqual(game("/moves/", 1), result)
+
+	def test_main_moveset(self):
+		board = chess.Board()
+		result = ["Draw wasn't accepted"]
+		self.assertEqual(game("/cancel_draw/", 1), result)
 	
 
 if __name__ == '_main__':
