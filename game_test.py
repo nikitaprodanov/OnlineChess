@@ -3,7 +3,7 @@ import unittest
 from game import *
 
 
-class FlaskTestCase(unittest.TestCase):
+class GameTestCase(unittest.TestCase):
 
 	#testing start function
 	def test_start(self):
@@ -37,13 +37,13 @@ class FlaskTestCase(unittest.TestCase):
 		self.assertEqual(game("/start/", 1), result)
 
 	#testing main input options
-	def test_main_moveset(self):
+	def test_available_moves(self):
 		board = chess.Board()
 		result = list_of_moves(board)
 		self.assertEqual(game("/moves/", 1), result)
 
 	#testing draw rejection via input
-	def test_main_moveset(self):
+	def test_draw_main(self):
 		board = chess.Board()
 		result = ["Draw wasn't accepted"]
 		self.assertEqual(game("/cancel_draw/", 1), result)
@@ -57,7 +57,7 @@ class FlaskTestCase(unittest.TestCase):
 		self.assertEqual(list_of_moves(board), moves)
 
 	#testing draw rejections
-	def test_draw(self):
+	def test_draw_function(self):
 		draw = 2
 		result = ['Draw offer sent',
    		"Type '/draw/' to accept the offer",
