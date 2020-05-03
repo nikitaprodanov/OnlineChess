@@ -25,6 +25,7 @@ def rules_message():
 	"destination square. For example, Bxe5 (bishop captures the piece on e5). When a ",
 	"pawn makes a capture, the file from which the pawn departed is used to identify ",
 	"the pawn.",
+	"For example, exd5 (pawn on the e-file captures the piece on d5).",
 	"Promotions:",
 	"When a pawn moves to the last rank and promotes, the piece promoted to is",
 	"indicated at the end of the move notation, for example: e8Q (promoting to",
