@@ -134,6 +134,7 @@ def message(data):
 	w_logger(text)
 	my_input = data['msg']
 	if my_input[0] == '/' and my_input[-1] == '/':
+		emit('clear-message')
 		send({'msg': data['msg'], 'username': data['username'], 'time_stamp': strftime('%b-%d %I:%M%p', localtime())}, room=data['room'])
 		result = game(my_input, current_user.id)
 		for x in result:
