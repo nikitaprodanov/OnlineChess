@@ -25,8 +25,20 @@ def rules_message():
 	"0-0-0 (queenside castling)."]
 
 def news_message():
-	return [""]
+	return ["Developer update for second milestone:",
+	"-Chat based chess with all the functionalities of the original game:",
+	"	--moving figures;",
+	"	--capturing figures;",
+	"	--castling;",
+	"	--draws;",
+	"-Comprehensive list of information about the text uci(universal chess",
+	"interface) and a place to ask questions about the game;",
+	"-User experience overhall, you don't need to scroll down tha page every time",
+	"you get a new message;",
+	"-Private player room where you and your friends can talk and play;",
+	"-News room where you can see all the latest updates on the project."]
 
 def lobby_message():
 	return ["This is the main room where all online users can chat!",
-	"Start with the rules room to get in touch how to play!"]
+	"Start with the rules room to get in touch how to play!",
+	"Or visit the news room to see what's new!"]
