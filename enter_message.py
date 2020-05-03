@@ -17,11 +17,20 @@ def rules_message():
 	"Nf3 (move a knight to f3). For pawn moves, a letter indicating pawn is not",
 	"used, only the destination square is given. For example, c5 (move a pawn to",
 	"c5).",
+	"When two (or more) identical pieces can move to the same square, the",
+	"moving piece is uniquely identified by specifying the piece's letter, followed",
+	"by (file of departure, rank of departure, both).",
 	"Captures:",
 	"When a piece makes a capture, an x is inserted immediately before the ",
 	"destination square. For example, Bxe5 (bishop captures the piece on e5). When a ",
 	"pawn makes a capture, the file from which the pawn departed is used to identify ",
-	"the pawn.","Castling:","Castling is indicated by the special notations 0-0 (for kingside castling) and",
+	"the pawn.",
+	"Promotions:",
+	"When a pawn moves to the last rank and promotes, the piece promoted to is",
+	"indicated at the end of the move notation, for example: e8Q (promoting to",
+	"queen).",
+	"Castling:",
+	"Castling is indicated by the special notations 0-0 (for kingside castling) and",
 	"0-0-0 (queenside castling)."]
 
 def news_message():
