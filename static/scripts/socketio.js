@@ -28,13 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	socket.on('handle-move', data => {
-		const p = document.createElement('p');
-		const span_username = document.createElement('span');
-		const span_timestamp = document.createElement('span');
-		const br = document.createElement('br');
-
-		p.innerHTML = data.msg + br.outerHTML;
+	socket.on('clear-message', data => {
+		document.querySelector('.display-message-section').innerHTML = '';
 	});
 
 	// Send messages
