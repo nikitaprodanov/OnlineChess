@@ -25,4 +25,8 @@
 		<!-- Security against Cross-Site Request Forgery attack -->
 		{{ form.csrf_token }}
 	</form>
+
+	<form action="{{ url_for('index')}}", method='GET'>
+		<button type="submit_button", class="register-redirect">Don't have an account?</button>
+	</form>
 {% endblock %}
