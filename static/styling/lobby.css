@@ -18,6 +18,8 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: -5em;
 }
 
 .challenge-me {
@@ -49,6 +51,9 @@ p {
 	height: 420em;
   width: 1000px;
   color: #ffcc33;
+  position: relative;
+  top: -32em;
+  right: 0em;
   background-color: #3B170B;
 }
 
@@ -105,5 +110,39 @@ input[type=submit]:hover{
   width: 100px;
   background-color: #3B170B;
   color: #ffcc33;
+  position: relative;
+  top: -5em;
 
+}
+
+.logout-redirect{
+  position: relative;
+  top: 0.95em;
+  left: 4.5em;
+  width: 100px;
+  height: 50px;
+  background-color: #3B170B;
+  color: #ffcc33;
+  font-size: 1.5rem;
+  font-family: "Georgia";
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  border: 1px #3B170B;   
+}
+
+.edit-redirect{
+  position: relative;
+  top: 6.14em;
+  left: 4.5em;
+  width: 100px;
+  height: 50px;
+  background-color: #3B170B;
+  color: #ffcc33;
+  font-size: 1.5rem;
+  font-family: "Georgia";
+  border: 1px #3B170B;
+  display: flex;
+  justify-content: left;
+  align-items: left;
 }
