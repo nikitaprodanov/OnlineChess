@@ -154,6 +154,8 @@ def join(data):
 		send({'msg': data['username'] + " has challanged " + data['room']}, room=data['room'])
 	else:
 		send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
+		if data['room'].upper() == "RULES":
+			send({'msg': "Theese are the rules!!!"}, room=data['room'])
 
  # Leaving a room
 @socketio.on('leave')
