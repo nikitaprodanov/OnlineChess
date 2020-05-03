@@ -10,6 +10,7 @@ from models import *
 from datetime import datetime
 import logging
 from game import *
+from enter_message import *
 
 # Configure app
 app = Flask(__name__)
@@ -27,6 +28,9 @@ ROOMS = ["lobby", "news", "rules"]
 
 # Players private rooms
 AVAILABLE = []
+
+#Room join message
+join_message = ""
 
 # Configure login manager
 login = LoginManager()
@@ -155,7 +159,9 @@ def join(data):
 	else:
 		send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
 		if data['room'].upper() == "RULES":
-			send({'msg': "Theese are the rules!!!"}, room=data['room'])
+			join_message = rules()
+			for x in join_message:
+				send({'msg': x}, room = data['room'])
 
  # Leaving a room
 @socketio.on('leave')
