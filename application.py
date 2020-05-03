@@ -159,7 +159,15 @@ def join(data):
 	else:
 		send({'msg': data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
 		if data['room'].upper() == "RULES":
-			join_message = rules()
+			join_message = rules_message()
+			for x in join_message:
+				send({'msg': x}, room = data['room'])
+		if data['room'].upper() == "NEWS":
+			join_message = news_message()
+			for x in join_message:
+				send({'msg': x}, room = data['room'])
+		if data['room'].upper() == "LOBBY":
+			join_message = lobby_message()
 			for x in join_message:
 				send({'msg': x}, room = data['room'])
 

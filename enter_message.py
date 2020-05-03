@@ -1,4 +1,4 @@
-def rules():
+def rules_message():
 	return ["Positions:",
 	"Each square of the chessboard is identified by a unique coordinate pair-a",
 	"letter and a number. The vertical columns of squares, called files, are labeled",
@@ -23,3 +23,10 @@ def rules():
 	"pawn makes a capture, the file from which the pawn departed is used to identify ",
 	"the pawn.","Castling:","Castling is indicated by the special notations 0-0 (for kingside castling) and",
 	"0-0-0 (queenside castling)."]
+
+def news_message():
+	return [""]
+
+def lobby_message():
+	return ["This is the main room where all online users can chat!",
+	"Start with the rules room to get in touch how to play!"]
