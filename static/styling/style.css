@@ -66,3 +66,39 @@ p {
   font-style: oblique;
   font-family: "Georgia";
 }
+
+.login-redirect{
+  color: black;
+  background-color: #897b7b;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 24px;
+  width: 310px;
+  position: relative;
+  left: -0.145em;
+  bottom: -1em;
+  transition-duration: 0.4s; 
+}
+
+.login-redirect:hover{
+  color: black;
+  background-image: linear-gradient(to right, #897b7b, white, #897b7b);
+}
+
+.register-redirect{
+  color: black;
+  background-color: #897b7b;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 24px;
+  width: 310px;
+  position: relative;
+  left: -0.145em;
+  bottom: -1em;
+  transition-duration: 0.4s; 
+}
+
+.register-redirect:hover{
+  color: black;
+  background-image: linear-gradient(to right, #897b7b, white, #897b7b);
+}
