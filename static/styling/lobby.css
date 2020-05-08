@@ -19,11 +19,12 @@ h4 {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -5em;
+  top: -3.5em;
 }
 
 .challenge-me {
   padding-right: 40em;
+
 
 }
 
@@ -52,7 +53,7 @@ p {
   width: 1000px;
   color: #ffcc33;
   position: relative;
-  top: -32em;
+  top: -30.1em;
   right: 0em;
   background-color: #3B170B;
 }
@@ -72,7 +73,7 @@ input[type=text]:hover {
 
 .user-message {
 	position: absolute;
-    top: 50%;
+    top: 52%;
     left: 45%;
     margin-top: -400px;
     margin-left: -500px;
@@ -92,7 +93,7 @@ input[type=submit] {
   	transition-duration: 0.4s;
 
   	position: absolute;
-    top: 65%;
+    top: 67%;
     left: 45%;
     margin-top: -350px;
     margin-left: -500px;
@@ -111,16 +112,16 @@ input[type=submit]:hover{
   background-color: #3B170B;
   color: #ffcc33;
   position: relative;
-  top: -5em;
+  top: -4em;
 
 }
 
 .logout-redirect{
   position: relative;
-  top: 0.95em;
+  top: -2em;
   left: 4.5em;
   width: 100px;
-  height: 50px;
+  height: 40px;
   background-color: #3B170B;
   color: #ffcc33;
   font-size: 1.5rem;
@@ -133,10 +134,10 @@ input[type=submit]:hover{
 
 .edit-redirect{
   position: relative;
-  top: 6.14em;
-  left: 4.5em;
+  top: -0.35em;
+  left: 0.2em;
   width: 100px;
-  height: 50px;
+  height: 40px;
   background-color: #3B170B;
   color: #ffcc33;
   font-size: 1.5rem;
