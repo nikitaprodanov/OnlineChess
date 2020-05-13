@@ -92,8 +92,4 @@ class GameTestCase(unittest.TestCase):
 		self.assertEqual(print_board(board), result)
 
 if __name__ == '_main__':
-	unittest.main()		
-
-
-
-
+	unittest.main()
