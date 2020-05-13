@@ -1,6 +1,6 @@
 # OnlineChess
 
-[![Build Status](https://travis-ci.com/uchihanaruto9371/OnlineChess.svg?branch=master)](https://travis-ci.com/uchihanaruto9371/OnlineChess)
+[![Build Status](https://travis-ci.com/uchihanaruto9371/OnlineChess.svg?branch=feature%2Fsetting-ci)](https://travis-ci.com/uchihanaruto9371/OnlineChess)
 
 Client/server based web api for playing chess. Describtion of the functionality:
 
