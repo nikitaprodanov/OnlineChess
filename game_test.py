@@ -39,8 +39,8 @@ class GameTestCase(unittest.TestCase):
 	#testing main input options
 	def test_available_moves(self):
 		board = chess.Board()
-		result = list_of_moves(board)
-		self.assertEqual(game("/moves/", 1), result)
+		result = ["Not your turn!!!"]
+		self.assertEqual(game("/e4/", 0), result)
 
 	#testing draw rejection via input
 	def test_draw_main(self):
@@ -51,9 +51,9 @@ class GameTestCase(unittest.TestCase):
 	#testing movement
 	def test_moves_check(self):
 		board = chess.Board()
-		moves = []
+		moves = ""
 		for move in board.legal_moves:
-			moves.append(str(move))
+			moves += (str(move) + " ")
 		self.assertEqual(list_of_moves(board), moves)
 
 	#testing draw rejections
@@ -92,8 +92,4 @@ class GameTestCase(unittest.TestCase):
 		self.assertEqual(print_board(board), result)
 
 if __name__ == '_main__':
-	unittest.main()		
-
-
-
-
+	unittest.main()
