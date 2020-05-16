@@ -1,7 +1,7 @@
 # OnlineChess
 
 ## Builds
-![GitHub] (https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess?color=purple&label=Last%20Push&logo=travis&style=for-the-badge)
+![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess?color=purple&label=Last%20Push&logo=travis&style=for-the-badge)
 
 Client/server based web api for playing chess. Describtion of the functionality:
 
