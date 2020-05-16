@@ -27,3 +27,5 @@ able to see all the other available rooms
 to challange. When a party is started both 
 your and your oponent`s rooms will not be 
 visible for the other players.
+
+https://img.shields.io/github/watchers/uchihanaruto9371/OnlineChess
