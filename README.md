@@ -1,6 +1,7 @@
 # OnlineChess
 
-[![Build Status](https://travis-ci.com/uchihanaruto9371/OnlineChess.svg?branch=feature%2Fsetting-ci)](https://travis-ci.com/uchihanaruto9371/OnlineChess)
+## Builds
+![GitHub] (https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess?color=purple&label=Last%20Push&logo=travis&style=for-the-badge)
 
 Client/server based web api for playing chess. Describtion of the functionality:
 
@@ -27,5 +28,3 @@ able to see all the other available rooms
 to challange. When a party is started both 
 your and your oponent`s rooms will not be 
 visible for the other players.
-
-![GitHub watchers](https://img.shields.io/github/watchers/uchihanaruto9371/OnlineChess)
