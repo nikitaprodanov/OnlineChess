@@ -20,9 +20,9 @@ Master/release branch: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9
 
 ![GitHub](https://img.shields.io/github/stars/uchihanaruto9371/OnlineChess?style=social)
 
-![GitHub](https://img.shields.io/watchers/uchihanaruto9371/OnlineChess?style=social)
+![GitHub](https://img.shields.io/github/watchers/uchihanaruto9371/OnlineChess?style=social)
 
-
+## 1. What is OnlineChess:
 Client/server based web api for playing chess. Describtion of the functionality:
 
 This project represents a web site to play
@@ -48,3 +48,16 @@ able to see all the other available rooms
 to challange. When a party is started both 
 your and your oponent`s rooms will not be 
 visible for the other players.
+
+## 2. How to use our site:
+In the future OnlineChess will be hosted on [Heroku](https://www.heroku.com/).
+Till this moment you can visit the [LatestRelease](https://github.com/uchihanaruto9371/OnlineChess/releases)
+and download the .zip file and visit the [DevDocumentation](https://github.com/uchihanaruto9371/OnlineChess/wiki/Development-Documentation)
+and read the **Build the project** section.
+
+## 3. Developers team:
+* *Nikita Prodanov* - back-end developer / QA - [uchihanaruto9371](https://github.com/uchihanaruto9371)
+* *Velislav Boyanov* - front-end developer / QA - [0NZ1T4M](https://github.com/0NZ1T4M)
+
+## 4. Technolodies:
+We use [Python](https://www.python.org/), [Flask](https://pypi.org/project/Flask/) (and it's extentions), [PostgresSQL](https://www.postgresql.org/).
