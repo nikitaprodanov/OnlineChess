@@ -28,4 +28,4 @@ to challange. When a party is started both
 your and your oponent`s rooms will not be 
 visible for the other players.
 
-![GitHub watchers]https://img.shields.io/github/watchers/uchihanaruto9371/OnlineChess
+![GitHub watchers](https://img.shields.io/github/watchers/uchihanaruto9371/OnlineChess)
