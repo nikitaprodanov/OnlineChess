@@ -1,7 +1,27 @@
 # OnlineChess
 
-## Builds
-![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess?color=purple&label=Last%20Push&logo=travis&style=for-the-badge)
+## Builds:
+Last Modification: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess?color=important&label=Last%20Build&logo=travis&logoColor=important&style=for-the-badge)
+
+Nikita: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess/Nikita?color=important&label=develop&logo=travis&style=for-the-badge)
+
+Velislav: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess/Velislav?color=important&label=develop&logo=travis&style=for-the-badge)
+
+Master/release branch: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9371/OnlineChess/master?color=important&label=Master%2Frelease&logo=travis&style=for-the-badge)
+
+## Development Stats:
+![GitHub](https://img.shields.io/github/issues-pr/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+![GitHub](https://img.shields.io/github/issues-pr-closed/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+![GitHub](https://img.shields.io/github/contributors/uchihanaruto9371/OnlineChess?style=for-the-badge)
+![GitHub](https://img.shields.io/github/last-commit/uchihanaruto9371/OnlineChess/Nikita?style=for-the-badge)
+
+## Repo Stats:
+![GitHub](https://img.shields.io/github/forks/uchihanaruto9371/OnlineChess?style=social)
+
+![GitHub](https://img.shields.io/github/stars/uchihanaruto9371/OnlineChess?style=social)
+
+![GitHub](https://img.shields.io/watchers/uchihanaruto9371/OnlineChess?style=social)
+
 
 Client/server based web api for playing chess. Describtion of the functionality:
 
