@@ -11,9 +11,15 @@ Master/release branch: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9
 
 ## Development Stats:
 ![GitHub](https://img.shields.io/github/issues-pr/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/issues-pr-closed/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/contributors/uchihanaruto9371/OnlineChess?style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/last-commit/uchihanaruto9371/OnlineChess/Nikita?style=for-the-badge)
+
+![GitHub](https://img.shields.io/github/v/tag/uchihanaruto9371/OnlineChess?label=Last%20Version&logo=github&style=for-the-badge)
+![GitHub](https://img.shields.io/github/release-date/uchihanaruto9371/OnlineCHess?logo=github&style=for-the-badge)
 
 ## Repo Stats:
 ![GitHub](https://img.shields.io/github/forks/uchihanaruto9371/OnlineChess?style=social)
@@ -56,8 +62,15 @@ and download the .zip file and visit the [DevDocumentation](https://github.com/u
 and read the **Build the project** section.
 
 ## 3. Developers team:
-* *Nikita Prodanov* - back-end developer / QA - [uchihanaruto9371](https://github.com/uchihanaruto9371)
-* *Velislav Boyanov* - front-end developer / QA - [0NZ1T4M](https://github.com/0NZ1T4M)
+* *Nikita Prodanov* - ![GitHub](https://img.shields.io/badge/back--end/QA-uchihanaruto9371-black?style=for-the-badge) - [uchihanaruto9371](https://github.com/uchihanaruto9371)
+* *Velislav Boyanov* - ![GitHub](https://img.shields.io/badge/front--end/game-0NZ1TAM-blue?style=for-the-badge) - [0NZ1T4M](https://github.com/0NZ1T4M)
 
 ## 4. Technolodies:
+
+![GitHub](https://img.shields.io/github/languages/count/uchihanaruto9371/OnlineChess?style=for-the-badge)
+
+![GitHub](https://img.shields.io/github/languages/top/uchihanaruto9371/OnlineChess?label=Most%20used%20language&logo=python&style=for-the-badge)
+
 We use [Python](https://www.python.org/), [Flask](https://pypi.org/project/Flask/) (and it's extentions), [PostgresSQL](https://www.postgresql.org/).
+
+More information on our [DevDocumentation](https://github.com/uchihanaruto9371/OnlineChess/wiki/Development-Documentation).
