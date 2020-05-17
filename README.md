@@ -71,3 +71,4 @@ and read the **Build the project** section.
 ![GitHub](https://img.shields.io/github/languages/top/uchihanaruto9371/OnlineChess?label=Most%20used%20language&logo=python&style=for-the-badge)
 
 We use [Python](https://www.python.org/), [Flask](https://pypi.org/project/Flask/) (and it's extentions), [PostgresSQL](https://www.postgresql.org/).
+More information on our [DevDocumentation](https://github.com/uchihanaruto9371/OnlineChess/wiki/Development-Documentation).
