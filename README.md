@@ -62,8 +62,8 @@ and download the .zip file and visit the [DevDocumentation](https://github.com/u
 and read the **Build the project** section.
 
 ## 3. Developers team:
-* *Nikita Prodanov* - back-end developer / QA - [uchihanaruto9371](https://github.com/uchihanaruto9371)
-* *Velislav Boyanov* - front-end developer / QA - [0NZ1T4M](https://github.com/0NZ1T4M)
+* *Nikita Prodanov* - ![GitHub](https://img.shields.io/badge/back--end/QA-uchihanaruto9371-black?style=for-the-badge) - [uchihanaruto9371](https://github.com/uchihanaruto9371)
+* *Velislav Boyanov* - ![GitHub](https://img.shields.io/badge/front--end/game-0NZ1TAM-blue?style=for-the-badge) - [0NZ1T4M](https://github.com/0NZ1T4M)
 
 ## 4. Technolodies:
 
