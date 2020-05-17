@@ -18,7 +18,7 @@ Master/release branch: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9
 
 ![GitHub](https://img.shields.io/github/last-commit/uchihanaruto9371/OnlineChess/Nikita?style=for-the-badge)
 
-![GitHub] (https://img.shields.io/github/v/tag/uchihanaruto9371/OnlineChess?label=Last%20Version&logo=github&style=for-the-badge)
+![GitHub](https://img.shields.io/github/v/tag/uchihanaruto9371/OnlineChess?label=Last%20Version&logo=github&style=for-the-badge)
 
 ## Repo Stats:
 ![GitHub](https://img.shields.io/github/forks/uchihanaruto9371/OnlineChess?style=social)
@@ -65,4 +65,9 @@ and read the **Build the project** section.
 * *Velislav Boyanov* - front-end developer / QA - [0NZ1T4M](https://github.com/0NZ1T4M)
 
 ## 4. Technolodies:
+
+![GitHub](https://img.shields.io/github/languages/count/uchihanaruto9371/OnlineChess?style=for-the-badge)
+
+![GitHub](https://img.shields.io/github/languages/top/uchihanaruto9371/OnlineChess?label=Most%20used%20language&logo=python&style=for-the-badge)
+
 We use [Python](https://www.python.org/), [Flask](https://pypi.org/project/Flask/) (and it's extentions), [PostgresSQL](https://www.postgresql.org/).
