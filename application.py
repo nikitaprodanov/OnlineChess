@@ -1,3 +1,5 @@
+# Thats the second release
+
 from time import localtime, strftime
 
 from flask import Flask, render_template, redirect, url_for
