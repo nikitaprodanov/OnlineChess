@@ -11,7 +11,23 @@
 	<body>
 		<!-- Navigation bar -->
 		<nav>
-			
+			<!-- Edit button -->
+			<form action="{{ url_for('edit')}}", method='GET'>
+				<!-- Button that redirects the user to the registration page -->
+				<button type="submit_button", class="edit-redirect">Edit</button>
+
+				<!-- Security against Cross-Site Request Forgery attack -->
+				{{ form.csrf_token }}
+			</form>
+
+			<!-- Logout button -->
+			<form action="{{ url_for('logout')}}", method='GET'>
+				<!-- Button that redirects the user to the registration page -->
+				<button type="submit_button", class="logout-redirect">Logout</button>
+
+				<!-- Security against Cross-Site Request Forgery attack -->
+				{{ form.csrf_token }}
+			</form>
 		</nav>
 
 		<div class="main-section">
@@ -21,6 +37,11 @@
 				<h4>ROOMS</h4>
 				{% for room in rooms %}
 					<p class="select-room">{{ room|title }}</p>
+				{% endfor %}
+
+				<h4 class="challenge-me">CHALLENGE ME!</h4>
+				{% for player in players %}
+					<p class="select-room">{{ player }}</p>
 				{% endfor %}
 
 
