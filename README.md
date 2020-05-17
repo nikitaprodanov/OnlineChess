@@ -11,8 +11,11 @@ Master/release branch: ![GitHub](https://img.shields.io/travis/com/uchihanaruto9
 
 ## Development Stats:
 ![GitHub](https://img.shields.io/github/issues-pr/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/issues-pr-closed/uchihanaruto9371/OnlineChess?color=green&style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/contributors/uchihanaruto9371/OnlineChess?style=for-the-badge)
+
 ![GitHub](https://img.shields.io/github/last-commit/uchihanaruto9371/OnlineChess/Nikita?style=for-the-badge)
 
 ## Repo Stats:
