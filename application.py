@@ -16,6 +16,8 @@ from notifications.login_notification import login_correct
 from notifications.register_notification import register_correct
 from notifications.edit_notification import edit_correct
 
+from playsound import playsound
+
 # Configure app
 app = Flask(__name__)
 app.secret_key = 'replace later'
@@ -141,6 +143,7 @@ def logout():
 # Event handler
 @socketio.on('message')
 def message(data):
+	playsound("static/styling/399191__spiceprogram__drip-echo.wav")
 	text = ' Website accessed.'
 	w_logger(text)
 	my_input = data['msg']
