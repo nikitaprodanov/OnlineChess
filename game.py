@@ -1,6 +1,7 @@
 import chess 
 
 from notifications.end_game_notification import end_game
+from notifications.start_game_notification import start_game_notification
 
 board = chess.Board()
 who_played = 0
@@ -45,6 +46,7 @@ def game_input(input, board, id):
 	global who_played
 
 	if input == "/start/": 
+		start_game_notification()
 		return start_game(board)
 
 	if input == "/moves/":
