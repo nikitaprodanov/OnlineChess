@@ -5,6 +5,7 @@ def end_game():
         title = "OnlineChess",
         message = "The chess party is over",
         app_name = "OnlineChess",
+        app_icon = "/home/nikita/Desktop/Python/OnlineChess/static/styling/OnlineChess.png",
         timeout = 10,
         toast = True
     )
