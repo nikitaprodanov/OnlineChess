@@ -5,5 +5,6 @@ def end_game():
         title = "OnlineChess",
         message = "The chess party is over",
         app_name = "OnlineChess",
-        timeout = 10
+        timeout = 10,
+        toast = True
     )
