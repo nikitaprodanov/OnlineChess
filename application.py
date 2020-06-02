@@ -13,6 +13,8 @@ from game import *
 from enter_message import *
 
 from notifications.login_notification import login_correct
+from notifications.register_notification import register_correct
+from notifications.edit_notification import edit_correct
 
 # Configure app
 app = Flask(__name__)
@@ -76,6 +78,7 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
+		register_correct()
 		text = 'new account made with username: ' + str(username) + '.'
 		w_logger(text) 
 		return redirect(url_for('login'))
@@ -110,6 +113,7 @@ def edit():
 		user = User.query.filter_by(username=edit_form.cur_username.data).first()
 		user.username = edit_form.new_username.data
 		db.session.commit()
+		edit_correct()
 		text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
 		i_logger(text)
 		return redirect(url_for('logout'))
