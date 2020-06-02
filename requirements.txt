@@ -19,3 +19,5 @@ itsdangerous==0.24
 psycopg2-binary==2.8.4
 py-bcrypt==0.4
 passlib==1.7.2
+plyer==1.4.3
+playsound==1.2.2

@@ -12,6 +12,12 @@ import logging
 from game import *
 from enter_message import *
 
+from notifications.login_notification import login_correct
+from notifications.register_notification import register_correct
+from notifications.edit_notification import edit_correct
+
+from playsound import playsound
+
 # Configure app
 app = Flask(__name__)
 app.secret_key = 'replace later'
@@ -74,6 +80,7 @@ def index():
 		user = User(username=username, password=hashed_pswd)
 		db.session.add(user)
 		db.session.commit()
+		register_correct()
 		text = 'new account made with username: ' + str(username) + '.'
 		w_logger(text) 
 		return redirect(url_for('login'))
@@ -87,6 +94,7 @@ def login():
 	login_form = LoginForm()
 
 	if login_form.validate_on_submit():
+		login_correct()
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
 		AVAILABLE.append(str(user_object.username))
@@ -107,6 +115,7 @@ def edit():
 		user = User.query.filter_by(username=edit_form.cur_username.data).first()
 		user.username = edit_form.new_username.data
 		db.session.commit()
+		edit_correct()
 		text = 'user with id: ' + str(current_user.id) + 'and username: ' + str(current_user.username) + 'edited their account.'
 		i_logger(text)
 		return redirect(url_for('logout'))
@@ -134,6 +143,7 @@ def logout():
 # Event handler
 @socketio.on('message')
 def message(data):
+	playsound("static/styling/399191__spiceprogram__drip-echo.wav")
 	text = ' Website accessed.'
 	w_logger(text)
 	my_input = data['msg']
