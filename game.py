@@ -1,7 +1,6 @@
 import chess 
 
 from notifications.end_game_notification import end_game
-from notifications.start_game_notification import start_game_notification
 
 board = chess.Board()
 who_played = 0
