@@ -5,6 +5,5 @@ def start_game_notification():
         title = "OnlineChess",
         message = "You are in a party now.",
         app_name = "OnlineChess",
-        timeout = 10,
-        toast = True
+        timeout = 10
     )
