@@ -46,7 +46,6 @@ def game_input(input, board, id):
 	global who_played
 
 	if input == "/start/": 
-		# start_game_notification()
 		return start_game(board)
 
 	if input == "/moves/":
