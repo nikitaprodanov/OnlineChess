@@ -12,6 +12,8 @@ import logging
 from game import *
 from enter_message import *
 
+from notifications.login_notification import login_correct
+
 # Configure app
 app = Flask(__name__)
 app.secret_key = 'replace later'
@@ -87,6 +89,7 @@ def login():
 	login_form = LoginForm()
 
 	if login_form.validate_on_submit():
+		login_correct()
 		user_object = User.query.filter_by(username=login_form.username.data).first()
 		login_user(user_object)
 		AVAILABLE.append(str(user_object.username))

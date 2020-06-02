@@ -1,6 +1,6 @@
 from plyer import notification
 
-def login_correct {
+def login_correct():
     notification.notify(
         title = "OnlineChess",
         message = "You logged in successfuly",
@@ -8,4 +8,3 @@ def login_correct {
         timeout = 10,
         toast = True
     )
-}
