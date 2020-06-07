@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-PATH = "/home/nikita/Desktop/Python/OnlineChess/chromedriver"
+PATH = "./chromedriver"
 
 driver = webdriver.Chrome(PATH)
 
