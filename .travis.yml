@@ -4,6 +4,9 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python2.7.12/bin/
+  - export CHROME_BIN=chromium-browser
 # command to run tests
 script:
   - "python3 test.py"
