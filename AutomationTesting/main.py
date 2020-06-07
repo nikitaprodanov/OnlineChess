@@ -5,7 +5,7 @@ import time
 class BasicOnlineChessTest(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver")
+        self.driver = webdriver.Chrome("./chromedriver")
         self.driver.get("http://127.0.0.1:5000/")
 
     def test_loads_correctly(self):
