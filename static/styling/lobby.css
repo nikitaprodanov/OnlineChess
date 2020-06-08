@@ -1,5 +1,5 @@
 body {
-	background: #D4965F; 
+	background-image: linear-gradient(to bottom , #585858, white);  
 }
 
 nav	{
@@ -7,10 +7,10 @@ nav	{
 }
 
 h4 {
-	background-color: #3B170B;
+	background-color: black;
 	align-items: center;
 	font-weight: bold;
-  color: #ffcc33;
+  color: #BDBDBD;
   font-size: 1.5rem;
   font-style: oblique;
   font-family: "Georgia";
@@ -51,22 +51,22 @@ p {
 	float: right;
 	height: 420em;
   width: 1000px;
-  color: #ffcc33;
+  color: #BDBDBD;
   position: relative;
   top: -30.1em;
   right: 0em;
-  background-color: #3B170B;
+  background-color: black;
 }
 
 input[type=text] {
-  color: #ffcc33;
-  background-color: #3B170B;
+  color: white;
+  background-color: black;
   border: 2px solid black;
   font-size: 1em;
 }
 
 input[type=text]:hover {
-  color: #3B170B;
+  color: red;
   border: none;
   background-image: linear-gradient(to right ,white, #ffcc33);
 }
@@ -83,8 +83,8 @@ input[type=text]:hover {
 }
 
 input[type=submit] {
-	color: #ffcc33;
-  	background-color: #3B170B;
+	color: white;
+  	background-color: grey;
   	border: 1px solid black;
   	text-align: center;
   	font-size: 24px;
@@ -102,17 +102,18 @@ input[type=submit] {
 
 input[type=submit]:hover{
 	color: black;
-    background-image: linear-gradient(to right, #3B170B, white, #3B170B);
+    background-image: linear-gradient(to right, black, white, black);
 }
 
 .select-room {
 	font-size: 24px;
 	height: 50px;
   width: 100px;
-  background-color: #3B170B;
-  color: #ffcc33;
+  background-color: black;
+  color: white;
   position: relative;
   top: -4em;
+  font-family: "Georgia";
 
 }
 
@@ -122,8 +123,8 @@ input[type=submit]:hover{
   left: 4.5em;
   width: 100px;
   height: 40px;
-  background-color: #3B170B;
-  color: #ffcc33;
+  background-color: black;
+  color: white;
   font-size: 1.5rem;
   font-family: "Georgia";
   display: flex;
@@ -138,8 +139,8 @@ input[type=submit]:hover{
   left: 0.2em;
   width: 100px;
   height: 40px;
-  background-color: #3B170B;
-  color: #ffcc33;
+  background-color: black;
+  color: white;
   font-size: 1.5rem;
   font-family: "Georgia";
   border: 1px #3B170B;
