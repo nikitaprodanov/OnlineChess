@@ -22,7 +22,7 @@ from playsound import playsound
 
 # Configure app
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET')
+app.secret_key = 'replace'
 
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI']='postgres://kcszumbnyngcpe:b6bff3fa03331de5fa50e583ab82b05524c0e1b1551fdc98673a56c558fbff29@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d8ru7iuptl4q1i'
