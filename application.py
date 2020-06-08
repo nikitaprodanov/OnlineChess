@@ -22,7 +22,7 @@ from playsound import playsound
 
 # Configure app
 app = Flask(__name__)
-app.secret_key = 'replace later'
+app.secret_key = os.environ.get('SECRET')
 
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
@@ -192,4 +192,4 @@ def leave(data):
 	send({'msg': data['username'] + " has left the " + data['room'] + " room."}, room=data['room'])
 
 if __name__ == "__main__":
-	socketio.run(app, debug=True)
+	app.run()
