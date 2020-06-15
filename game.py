@@ -1,5 +1,7 @@
 import chess 
 
+from notifications.end_game_notification import end_game
+
 board = chess.Board()
 who_played = 0
 draw = 0
@@ -31,8 +33,10 @@ def game(input, id):
 def end_condition(board, id):
 	if board.is_checkmate(): 
 		winner_text = "User" + str(id) + " is the winner!!!" + "\n" + "There is a checkmate. Type '/start/' if you want to start another game!"
+		end_game()
 		return str(winner_text)
 	if board.is_stalemate():
+		end_game()
 		return "There is a stalemate on the board. Party results as a draw. Type '/start/' if you want to start new game!"
 
 def game_input(input, board, id):
@@ -72,6 +76,7 @@ def handle_draw():
 	if draw == 1:
 		return ["Draw offer sent", "Type '/draw/' to accept the offer", "or type '/cancle_draw/' to reject the draw offer"]
 	if draw == 2:
+		end_game()
 		return ["Draw was accepted", "Start a new game by typing '/start/'!"]
 
 def cancle_draw():
